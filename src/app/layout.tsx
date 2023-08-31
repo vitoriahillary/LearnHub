@@ -3,7 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 
-const inter = Poppins({ subsets: ['latin'], weight: '400' })
+const poppins = Poppins({ subsets: ['latin'], weight: '400' })
 
 export const metadata: Metadata = {
   title: 'LearnHub',
@@ -16,10 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <div className='grid grid-cols-app min-h-screen'>
           <Sidebar/>
-          {children}
+          {children} 
         </div>
       </body>
     </html>

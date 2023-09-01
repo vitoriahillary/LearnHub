@@ -15,11 +15,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className='antialiased'>
       <body className={poppins.className}>
         <div className='grid grid-cols-app min-h-screen'>
-          <Sidebar/>
-          {children} 
+          <Sidebar />
+          <main className='px-8 pb-12 pt-8 bg-zinc-800'>
+            {children}
+          </main>
         </div>
       </body>
     </html>

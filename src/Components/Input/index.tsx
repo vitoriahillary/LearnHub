@@ -24,7 +24,7 @@ export type InputRootProps = ComponentProps<'div'>
 
 export function Root(props: InputRootProps) {
     return (
-        <div className="flex mx-1 w-full items-center gap-2 rounded-lg border border-zinc-100 px-3 py-2 shadow-sm" 
+        <div className="flex mx-1 w-full items-center gap-2 rounded-lg border border-zinc-100 px-3 py-2 shadow-sm bg-zinc-700" 
         {...props} />
     )
 }

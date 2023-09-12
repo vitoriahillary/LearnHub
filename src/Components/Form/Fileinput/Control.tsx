@@ -20,6 +20,7 @@ export function Control(props: ControlProps){
     return(
         <input 
          type="file" 
+         name="course"
          className="sr-only" 
          id={id}
          onChange={handleFileSelected} 

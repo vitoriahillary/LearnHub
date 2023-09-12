@@ -28,6 +28,6 @@ export function Sidebar() {
                 <div className="h-px bg-zinc-200 mb-6"/>
                 <Profile/>
             </div>
-            </div>
-            )
+        </div>
+    )
 }

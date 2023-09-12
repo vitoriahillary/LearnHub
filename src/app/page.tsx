@@ -31,8 +31,8 @@ export default function Home() {
             <button className="rounded-lg px-4 py-2 
                                 text-sm font-semibold shadow-sm 
                                 bg-violet-600 text-white hover:bg-violet-700"
-              type="submit"
-              form="formUser">
+                    type="submit"
+                    form="formUser">
               Confirmar
             </button>
           </div>
@@ -74,7 +74,7 @@ export default function Home() {
               <Fileinput.Control />
             </Fileinput.Root>
             <div className="flex items-start gap-5">
-
+            
             </div>
           </div>
 

@@ -21,15 +21,14 @@ export default function Courses() {
 
     const [course, setCourse] = useState<Course[]>([])
 
-    async function getCourses() {
-        const response = await api.get('/courses')
-        setCourse(response.data.courses)
-    }
+    // async function getCourses() {
+    //     const response = await api.get('/courses')
+    //     setCourse(response.data.courses)
+    // }
 
-    useEffect(() => {
-        getCourses()
-    }, [])
-    console.log(course)
+    // useEffect(() => {
+    //     getCourses()
+    // }, [])
 
     const [actualPage, setActualPage] = useState(1)
     const [itemsByPage, setItemsByPage] = useState(2)
@@ -41,7 +40,7 @@ export default function Courses() {
     const start = (actualPage - 1) * itemsByPage
     const end = start + itemsByPage
 
-    const course2 = course.slice(start, end)
+    const course2 = Cursos.slice(start, end)
 
     return (
         <>

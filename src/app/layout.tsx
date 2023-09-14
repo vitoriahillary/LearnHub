@@ -17,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en" className='antialiased'>
       <body className={poppins.className}>
-        <div className='grid grid-cols-app min-h-screen'>
-          <Sidebar />
+        <div className='lg:grid lg:grid-cols-app min-h-screen flex'>
+          <aside className='lg:flex hidden'>
+            <Sidebar />
+          </aside>
           <main className='px-8 pb-12 pt-8 bg-zinc-800'>
             {children}
           </main>

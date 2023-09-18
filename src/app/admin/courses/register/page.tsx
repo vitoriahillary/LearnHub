@@ -7,28 +7,54 @@ import { FormEvent, useState } from "react";
 import { api } from "@/services/api";
 import toast, { Toaster } from "react-hot-toast";
 
+type Course ={
+    id: string,
+    name: string,
+    description: string,
+    rating: number,
+    qtdeRating: number,
+    image: string,
+    price: number,
+    id_staff: string,
+    status: number
+}
+
 export default function Register() {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [image, setImage] = useState<FileList | null >();
-    const [price, setPrice] = useState('');
+    const [price, setPrice] = useState(0);
+    const [courseCreated, setCourseCreated] = useState<Course>()
 
     const course = {
         name,
         description,
-        image,
         price,
-        id_staff: '0e849a14-75ed-4b2b-a7e0-c7415af6caa1'
+        id_staff: '30a09edb-d291-4c5e-b9d7-76c43310d9d6'
     }
+    console.log(course)
 
-    // const handleCadastro = (event: FormEvent) => {
+    const handleCadastro = async (event: FormEvent) => {
 
-    //     event.preventDefault()
+        event.preventDefault()
 
-    //     api.post("/course", course)
-    //         .then(() => toast.success("Account created successfully!"))
-    //         .catch(() => toast.error("Unable to create account, please try again!"))
-    // };
+        api.post("/course", course)
+            .then((res) => {
+                setCourseCreated(res.data)
+
+                console.log(res.data.id)
+                const formData: FormData | null = new FormData
+                formData.append('course', image![0])
+                api.post(`/course/image/${res.data.id}`, formData)
+                    .then((res) => {
+                        setCourseCreated(res.data)
+                        toast.success("Account created successfully!")
+                    })
+                    .catch(() => toast.error("Unable to create course, please try again!"))
+            })
+            .catch(() => toast.error("Unable to create course, please try again!"))
+    };
+    console.log(courseCreated)
     
     return (
         <>
@@ -88,7 +114,9 @@ export default function Register() {
                         </label>
                         <Fileinput.Root className="flex items-star gap-5">
                             <Fileinput.Trigger />
-                            <Fileinput.Control onChange={(e) => setImage(e.target.files)}/>
+                            <Fileinput.Control onChange={(e) => {
+                                console.log(e)
+                                setImage(e.target.files)}}/>
                         </Fileinput.Root>
                     </div>
                     <div className="grid grid-cols-form gap-3 pt-5">
@@ -98,7 +126,7 @@ export default function Register() {
                                 <Input.Prefix>
                                     <DollarSign className="text-zinc-100 w-5 h-5" />
                                 </Input.Prefix>
-                                <Input.Controll id='preco' defaultValue={''}  onChange={(e) => setPrice(e.target.value)}/>
+                                <Input.Controll id='preco' defaultValue={''}  onChange={(e) => setPrice(parseFloat(e.target.value))}/>
                             </Input.Root>
                         </div>
                     </div>
@@ -116,7 +144,7 @@ export default function Register() {
                                 bg-violet-600 text-white hover:bg-violet-700"
                                 type="submit"
                                 form="formUser"
-                                // onClick={handleCadastro}
+                                onClick={handleCadastro}
                         >
                             Confirmar
                         </button>

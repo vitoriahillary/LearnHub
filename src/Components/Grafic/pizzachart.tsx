@@ -11,7 +11,6 @@ function PieChart() {
     const options = {
         chart: {
             id: 'apexchart-example',
-            with: 100
         },
         labels: ['Female', 'Male', 'Other'],
     };
@@ -20,7 +19,7 @@ function PieChart() {
 
     return (
         <>
-            <ApexChart type="pie" options={options} series={series} label={labels} className=' flex-col px-2 py-3 justify-center h-72 w-72' />
+            <ApexChart type="pie" options={options} series={series} label={labels} className=' flex-col px-2 py-3 justify-center h- w-' />
         </>
     )
 }
@@ -28,7 +27,7 @@ function PieChart() {
 export function PizzaChart() {
     return (
         <>
-            <div className="h-[14rem] bg-zinc-600 p-2 rounded-md border-zinc-200 flex flex-col flex-1 mt-8">
+            <div className="h- bg-zinc-600 p-2 rounded-md border-zinc-200 flex flex-col flex-1 mt-8">
                 <strong className="text-zinc-100 font-medium">Publico Alvo</strong>
                 <div className="">
                     <PieChart />

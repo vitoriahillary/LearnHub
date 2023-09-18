@@ -22,6 +22,9 @@ export default function Grafic() {
             <div>
                 <StatsGrid />
             </div>
+            <div className='flex flex-row justify-center'>
+                <h2 className="flex text-zinc-50 text-3xl font-medium pt-5">Cursos</h2>
+            </div>
             <div className="flex gap-2 justify-center">
                 <ExampleChart />
             </div>

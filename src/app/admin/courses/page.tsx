@@ -74,7 +74,7 @@ export default function Courses() {
                     Pesquisar
                 </button>
             </div>
-            <div className="px-5 mt-10">
+            <div className="px-5 mt-10 overflow-x-auto">
                 <Table.Tbl>
                     <Table.TableThead>
                         <Table.TableTr

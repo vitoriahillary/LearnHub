@@ -11,7 +11,7 @@ function BarChart() {
     const options = {
         chart: {
             id: 'apexchart-example',
-            with: 100
+            padding: 50
         },
         labels: ['Ativos', 'Desativos'],
         plotOptions: {
@@ -29,7 +29,7 @@ function BarChart() {
 
     return (
         <>
-            <ApexChart type="bar" options={options} series={series} className=' flex-col px-2 py-3 justify-center h-72 w-72' />
+            <ApexChart type="bar" options={options} series={series} className=' flex-col px-2 py-3 justify-center mb-2 h- w-' />
         </>
     )
 }
@@ -37,11 +37,9 @@ function BarChart() {
 export function Chart() {
     return (
         <>
-            <div className="h-[14rem] bg-zinc-600 p-2 rounded-md border-zinc-200 flex flex-col flex-1 mt-8">
+            <div className="bg-zinc-600 p-2 rounded-md border-zinc-200 flex flex-col flex-1 mt-8 max-w-xl">
                 <strong className="text-zinc-100 font-medium">Bar Grafic</strong>
-                <div className="">
                     <BarChart />
-                </div>
             </div>
         </>
     )
